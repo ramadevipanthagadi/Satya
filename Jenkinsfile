@@ -22,6 +22,7 @@ pipeline {
         stage('Push Image') {
             steps {
                 script {
+                    // uses credentials stored in Jenkins securely
                     docker.withRegistry("https://index.docker.io/v1/", "dockerhub-credentials") {
                         docker.image("${REGISTRY}/${IMAGE_NAME}:${env.BUILD_NUMBER}").push()
                     }
