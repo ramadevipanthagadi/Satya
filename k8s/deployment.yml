@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotel-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: hotel-frontend
+  template:
+    metadata:
+      labels:
+        app: hotel-frontend
+    spec:
+      containers:
+      - name: hotel-frontend
+        image: Sunithriyansh/hotel-frontend:latest
+        ports:
+        - containerPort: 80
